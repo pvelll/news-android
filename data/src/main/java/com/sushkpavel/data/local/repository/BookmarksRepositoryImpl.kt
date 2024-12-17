@@ -5,7 +5,6 @@ import com.sushkpavel.data.local.entity.toEntity
 import com.sushkpavel.data.local.entity.toNews
 import com.sushkpavel.domain.model.News
 import com.sushkpavel.domain.repository.BookmarksRepository
-import io.ktor.client.HttpClient
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map

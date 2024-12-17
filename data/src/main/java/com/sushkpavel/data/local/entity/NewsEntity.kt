@@ -3,12 +3,13 @@ package com.sushkpavel.data.local.entity
 import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.sushkpavel.data.utils.Utils.BOOKMARKS_TABLE_NAME
 import com.sushkpavel.domain.model.News
 import com.sushkpavel.domain.model.Source
 import kotlinx.serialization.Serializable
 
 @Serializable
-@Entity(tableName = "news")
+@Entity(tableName = BOOKMARKS_TABLE_NAME)
 data class NewsEntity(
     @PrimaryKey val url: String,
     val author: String?,
