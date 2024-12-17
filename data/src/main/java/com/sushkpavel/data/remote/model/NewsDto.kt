@@ -1,4 +1,4 @@
-package com.sushkpavel.data.model
+package com.sushkpavel.data.remote.model
 
 import com.sushkpavel.domain.model.News
 import kotlinx.serialization.Serializable

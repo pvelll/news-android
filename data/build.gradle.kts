@@ -52,7 +52,14 @@ dependencies {
     implementation(libs.ktor.client.json)
     implementation(libs.ktor.client.content.negotiation)
     implementation(libs.ktor.client.logging)
+
     implementation(libs.kotlinx.coroutines.core)
+
+    implementation(libs.room.runtime)
+    ksp(libs.room.compiler)
+    implementation(libs.room.ktx)
+    testImplementation(libs.room.testing)
+    
     implementation(libs.androidx.paging.common.android)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

@@ -3,7 +3,7 @@ package com.sushkpavel.data.remote.paging
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.sushkpavel.data.BuildConfig
-import com.sushkpavel.data.model.NewsDto
+import com.sushkpavel.data.remote.model.NewsDto
 import com.sushkpavel.data.utils.Utils.HEADLINES_END_POINT
 import com.sushkpavel.data.utils.Utils.PAGE_SIZE
 import com.sushkpavel.domain.model.News
