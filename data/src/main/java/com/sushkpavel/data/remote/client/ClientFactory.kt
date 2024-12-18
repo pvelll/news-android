@@ -8,7 +8,7 @@ import io.ktor.client.plugins.logging.*
 import io.ktor.serialization.kotlinx.json.json
 
 class ClientFactory {
-    fun create() : HttpClient {
+    fun build() : HttpClient {
         return HttpClient(CIO){
             install(Logging){
                 logger = Logger.DEFAULT

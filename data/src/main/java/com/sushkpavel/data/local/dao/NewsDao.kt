@@ -7,6 +7,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.sushkpavel.data.local.entity.NewsEntity
 import kotlinx.coroutines.flow.Flow
+import com.sushkpavel.data.utils.Utils.BOOKMARKS_TABLE_NAME
 
 @Dao
 interface NewsDao {
@@ -16,9 +17,9 @@ interface NewsDao {
     @Delete
     suspend fun delete(news: NewsEntity)
 
-    @Query("SELECT * FROM news")
+    @Query("SELECT * FROM $BOOKMARKS_TABLE_NAME")
     fun getAll(): Flow<List<NewsEntity>>
 
-    @Query("SELECT EXISTS(SELECT * FROM news WHERE url = :url)")
+    @Query("SELECT EXISTS(SELECT * FROM $BOOKMARKS_TABLE_NAME WHERE url = :url)")
     fun isSaved(url: String): Flow<Boolean>
 }

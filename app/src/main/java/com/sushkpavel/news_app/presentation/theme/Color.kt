@@ -1,4 +1,4 @@
-package com.sushkpavel.news_app.ui.theme
+package com.sushkpavel.news_app.presentation.theme
 
 import androidx.compose.ui.graphics.Color
 

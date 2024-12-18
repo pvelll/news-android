@@ -63,6 +63,7 @@ room-testing = { group = "androidx.room", name = "room-testing", version.ref = "
 
 koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin" }
 koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koin" }
+koin-androidx-room = { module = "io.insert-koin:koin-androidx-room", version.ref = "koin" }
 
 [plugins]
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
