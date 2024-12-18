@@ -18,9 +18,9 @@ android {
         consumerProguardFiles("consumer-rules.pro")
         val apiKey: String = System.getenv("API_KEY") ?: gradleLocalProperties(rootDir, providers).getProperty("API_KEY") as String
         buildConfigField("String", "API_KEY", "\"$apiKey\"")
-//        ksp {
-//            arg("room.schemaLocation", "$projectDir/schemas")
-//        }
+        ksp {
+            arg("room.schemaLocation", "$projectDir/schemas")
+        }
     }
     buildFeatures{
         buildConfig = true
