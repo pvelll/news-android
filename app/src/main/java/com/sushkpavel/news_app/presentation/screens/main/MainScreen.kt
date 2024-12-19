@@ -10,23 +10,18 @@ import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalContext
-import androidx.navigation.NavHostController
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.sushkpavel.news_app.presentation.navigation.AppNavGraph
 import com.sushkpavel.news_app.presentation.navigation.routes.BottomNavigation
-import com.sushkpavel.news_app.presentation.navigation.routes.ScreenBookmarks
-import com.sushkpavel.news_app.presentation.navigation.routes.ScreenNews
-
 
 @Composable
 fun MainScreen() {
     val navController = rememberNavController()
-
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route
         ?: BottomNavigation.NEWS.route::class.qualifiedName.orEmpty()
-
     val currentRouteTrimmed by remember(currentRoute) {
         derivedStateOf { currentRoute.substringBefore("?") }
     }
@@ -61,6 +56,12 @@ fun MainScreen() {
             paddingValues = innerPadding
         )
     }
+}
+
+@Preview
+@Composable
+fun mainScreenPreview(){
+    MainScreen()
 }
 
 

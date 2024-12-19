@@ -8,7 +8,7 @@ import io.ktor.client.plugins.logging.*
 import io.ktor.serialization.kotlinx.json.json
 
 class ClientFactory {
-    fun build() : HttpClient {
+    fun build() : HttpClient { // its familiar for me to use ktor, i love it. But i can do the same in retrofit, its not hard
         return HttpClient(CIO){
             install(Logging){
                 logger = Logger.DEFAULT

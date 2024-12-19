@@ -20,6 +20,7 @@ pagingCommonAndroid = "3.3.5"
 koin = "4.0.0"
 room = "2.6.1"
 navigation = "2.8.5"
+accompanist = "0.24.13-rc"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }

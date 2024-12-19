@@ -7,7 +7,7 @@ plugins {
 
 android {
     namespace = "com.sushkpavel.news_app"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.sushkpavel.news_app"
@@ -52,6 +52,9 @@ dependencies {
 
     //navigation
     implementation(libs.androidx.navigation)
+
+    //ktor
+    implementation(libs.ktor.client.core)
 
     //koin
     implementation(libs.koin.android)

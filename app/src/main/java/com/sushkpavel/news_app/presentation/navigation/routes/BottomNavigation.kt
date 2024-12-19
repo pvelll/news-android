@@ -7,6 +7,5 @@ import androidx.compose.ui.graphics.vector.ImageVector
 
 enum class BottomNavigation(val label: String, val icon: ImageVector, val route: Routes) {
     NEWS("News", Icons.Filled.Menu, Routes.News),
-//    SEARCH("Search", Icons.Filled.Search, Routes.Search()),
-    BOOKMARKS("Profile", Icons.Filled.Favorite, Routes.Bookmarks);
+    BOOKMARKS("Bookmarks", Icons.Filled.Favorite, Routes.Bookmarks);
 }

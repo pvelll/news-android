@@ -8,8 +8,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.sushkpavel.news_app.presentation.navigation.routes.ScreenBookmarks
-import com.sushkpavel.news_app.presentation.navigation.routes.ScreenNews
+import com.sushkpavel.news_app.presentation.navigation.routes.Routes
 import com.sushkpavel.news_app.presentation.screens.bookmarks.BookmarksScreen
 import com.sushkpavel.news_app.presentation.screens.news.NewsScreen
 
@@ -17,14 +16,14 @@ import com.sushkpavel.news_app.presentation.screens.news.NewsScreen
 fun AppNavGraph(navController: NavHostController, context: Context, paddingValues: PaddingValues) {
     NavHost(
         navController = navController,
-        startDestination = ScreenNews,
+        startDestination = Routes.News,
         modifier = Modifier.padding(paddingValues)
     ) {
-        composable<ScreenNews> {
+        composable<Routes.News> {
             NewsScreen(navController = navController, context = context)
         }
-        composable<ScreenBookmarks> {
+        composable<Routes.Bookmarks> {
             BookmarksScreen(navController = navController, context = context)
         }
     }
-}
+}// implement type-safe navigation, much better than common jetpack navigation
