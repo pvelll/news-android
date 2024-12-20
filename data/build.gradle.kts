@@ -56,6 +56,7 @@ dependencies {
     implementation(libs.kotlinx.coroutines.core)
 
     implementation(libs.room.runtime)
+    implementation(libs.androidx.media3.common.ktx)
     ksp(libs.room.compiler)
     implementation(libs.room.ktx)
     testImplementation(libs.room.testing)

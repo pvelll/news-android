@@ -1,6 +1,8 @@
 package com.sushkpavel.news_app.presentation.screens.news
 
 
+
+import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
@@ -11,7 +13,6 @@ import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
@@ -26,7 +27,6 @@ fun NewsList(
     newsPaging: LazyPagingItems<News>,
     modifier: Modifier = Modifier,
 ) {
-    val context = LocalContext.current
     LazyColumn(
         modifier = modifier,
         contentPadding = PaddingValues(
@@ -37,6 +37,7 @@ fun NewsList(
     ) {
         items(newsPaging.itemCount) {
             val news = newsPaging[it]
+            Log.d("News",news.toString())
             if (news != null) {
                 NewsItem(
                     news = news,

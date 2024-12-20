@@ -1,5 +1,6 @@
 package com.sushkpavel.news_app.presentation.screens.news
 
+import android.util.Log
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
@@ -27,8 +28,7 @@ fun NewsImage(
 ) {
     SubcomposeAsyncImage(
         modifier = modifier,
-        model =
-        ImageRequest.Builder(LocalContext.current)
+        model = ImageRequest.Builder(LocalContext.current)
             .data(imageUrl)
             .crossfade(true)
             .build(),
@@ -36,9 +36,7 @@ fun NewsImage(
         contentScale = ContentScale.Crop,
         loading = {
             Box(
-                modifier =
-                Modifier
-                    .fillMaxSize(),
+                modifier = Modifier.fillMaxSize(),
                 contentAlignment = Alignment.Center
             ) {
                 CircularProgressIndicator(
@@ -47,21 +45,18 @@ fun NewsImage(
                 )
             }
         },
-        error = {
+        error = { error ->
             Box(
-                modifier =
-                Modifier
-                    .fillMaxSize(),
+                modifier = Modifier.fillMaxSize(),
                 contentAlignment = Alignment.Center
             ) {
                 Icon(
                     modifier = Modifier.size(48.dp),
                     imageVector = Icons.Outlined.Clear,
                     contentDescription = "Icon",
-                    tint = MaterialTheme.colorScheme.onBackground.copy(
-                        alpha = .5f
-                    )
+                    tint = MaterialTheme.colorScheme.onBackground.copy(alpha = .5f)
                 )
+                Log.e("NewsImage", "Error loading image: ${error.result.throwable}")
             }
         }
     )
