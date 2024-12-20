@@ -5,8 +5,8 @@ import kotlinx.serialization.Serializable
 sealed class Routes {
 
     @Serializable
-    data object Bookmarks: Routes()
+    data object ScreenBookmarks: Routes()
 
     @Serializable
-    data object News: Routes()
+    data object ScreenNews: Routes()
 }

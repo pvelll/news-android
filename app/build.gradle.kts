@@ -56,6 +56,15 @@ dependencies {
     //ktor
     implementation(libs.ktor.client.core)
 
+    //paging
+    implementation(libs.androidx.paging.compose)
+    implementation(libs.androidx.paging.common)
+    implementation(libs.androidx.paging)
+    implementation(libs.androidx.paging.common.android)
+
+    //coil
+    implementation(libs.coil.compose)
+
     //koin
     implementation(libs.koin.android)
     implementation(libs.koin.androidx.compose)
@@ -63,6 +72,8 @@ dependencies {
     //room
     implementation(libs.room.ktx)
 
+    implementation(libs.material)
+    implementation(libs.androidx.appcompat)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)

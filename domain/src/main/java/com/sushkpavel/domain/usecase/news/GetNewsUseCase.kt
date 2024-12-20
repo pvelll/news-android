@@ -6,7 +6,7 @@ class GetNewsUseCase (
     private val repository: NewsRepository
 ) {
     suspend fun execute(
-        country: String?,
+        country: String? = "",
         category: String?
     ) = repository.getNews(
         country = country,

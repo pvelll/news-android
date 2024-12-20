@@ -4,16 +4,21 @@ import android.content.Context
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringArrayResource
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.sushkpavel.news_app.R
 import com.sushkpavel.news_app.presentation.utils.tab.TabIndicator
@@ -24,10 +29,10 @@ fun NewsScreen(
     modifier: Modifier = Modifier,
     navController: NavHostController,
     context: Context,
-    viewModel: NewsViewModel = koinViewModel()
+    viewModel: NewsViewModel
 ) {
     val categories = stringArrayResource(R.array.categories)
-    val pagerState = rememberPagerState(initialPage = viewModel.screenState.value.currentPage) {categories.size}
+    val pagerState = rememberPagerState(initialPage = viewModel.screenState.value.currentPage) { categories.size }
 
     LaunchedEffect(pagerState.currentPage) {
         viewModel.updateCurrentPage(pagerState.currentPage)
@@ -39,15 +44,16 @@ fun NewsScreen(
             state = pagerState,
             modifier = Modifier.weight(1f)
         ) { page ->
-            Box(modifier = Modifier.fillMaxSize()) {
-                Text(
-                    text = "Content for ${categories[page]}",
-                    modifier = Modifier.align(Alignment.Center)
-                )
-            }
+            NewsPage(
+                category = categories[page],
+                pageIndex = page,
+                viewModel = viewModel
+            )
         }
     }
 }
+
+
 
 
 

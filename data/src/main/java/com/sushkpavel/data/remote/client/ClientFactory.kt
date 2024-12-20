@@ -18,6 +18,7 @@ class ClientFactory {
                 json(Json {
                     isLenient = true
                     ignoreUnknownKeys = true
+                    coerceInputValues = true 
                 })
             }
         }

@@ -6,6 +6,6 @@ import androidx.compose.material.icons.filled.Menu
 import androidx.compose.ui.graphics.vector.ImageVector
 
 enum class BottomNavigation(val label: String, val icon: ImageVector, val route: Routes) {
-    NEWS("News", Icons.Filled.Menu, Routes.News),
-    BOOKMARKS("Bookmarks", Icons.Filled.Favorite, Routes.Bookmarks);
+    NEWS("News", Icons.Filled.Menu, Routes.ScreenNews),
+    BOOKMARKS("Bookmarks", Icons.Filled.Favorite, Routes.ScreenBookmarks);
 }
