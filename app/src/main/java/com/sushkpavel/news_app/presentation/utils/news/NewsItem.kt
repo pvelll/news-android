@@ -1,6 +1,8 @@
-package com.sushkpavel.news_app.presentation.screens.news
+package com.sushkpavel.news_app.presentation.utils.news
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -14,6 +16,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.sushkpavel.domain.model.News
@@ -31,49 +34,29 @@ fun NewsItem(
             containerColor = MaterialTheme.colorScheme.surface,
         )
     ) {
-        Row(
-            modifier = Modifier.fillMaxSize(),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(8.dp)
+        Box(
+            modifier = Modifier.fillMaxWidth()
         ) {
             news.urlToImage?.let {
                 NewsImage(
                     imageUrl = it,
                     contentDescription = news.title,
-                    modifier =
-                    Modifier
-                        .height(100.dp)
-                        .fillMaxWidth(.32f)
+                    modifier = Modifier.fillMaxWidth()
                 )
             }
 
-            Column(
-                modifier =
-                Modifier
-                    .padding(end = 8.dp)
-                    .fillMaxWidth(),
-                verticalArrangement = Arrangement.spacedBy(16.dp)
+            Box(
+                modifier = Modifier
+                    .align(Alignment.BottomStart)
+                    .background(Color.Black.copy(alpha = 0.6f))
+                    .padding(8.dp)
             ) {
                 Text(
-                    text = news.title,
-                    style = MaterialTheme.typography.titleMedium,
-                    maxLines = 2,
+                    text = news.title.take(30) + if (news.title.length > 30) "..." else "",
+                    style = MaterialTheme.typography.titleMedium.copy(color = Color.White),
+                    maxLines = 1,
                     overflow = TextOverflow.Ellipsis
                 )
-
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween
-                ) {
-                    Text(
-                        text = news.publishedAt,
-                        style = MaterialTheme.typography.bodySmall
-                    )
-                    Text(
-                        text = news.source.name,
-                        style = MaterialTheme.typography.bodySmall
-                    )
-                }
             }
         }
     }

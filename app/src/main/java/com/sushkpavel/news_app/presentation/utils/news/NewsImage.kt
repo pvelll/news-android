@@ -1,4 +1,4 @@
-package com.sushkpavel.news_app.presentation.screens.news
+package com.sushkpavel.news_app.presentation.utils.news
 
 import android.util.Log
 import androidx.compose.foundation.layout.Box

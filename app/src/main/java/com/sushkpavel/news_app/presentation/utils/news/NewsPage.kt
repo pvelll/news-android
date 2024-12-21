@@ -1,4 +1,4 @@
-package com.sushkpavel.news_app.presentation.screens.news
+package com.sushkpavel.news_app.presentation.utils.news
 
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.runtime.Composable
@@ -6,6 +6,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.remember
 import androidx.paging.compose.collectAsLazyPagingItems
+import com.sushkpavel.news_app.presentation.screens.news.NewsViewModel
 
 @Composable
 fun NewsPage(
