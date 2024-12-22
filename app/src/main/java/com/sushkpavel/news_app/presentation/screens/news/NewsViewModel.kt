@@ -3,7 +3,9 @@ package com.sushkpavel.news_app.presentation.screens.news
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.sushkpavel.domain.usecase.news.GetNewsUseCase
+import kotlinx.coroutines.launch
 
 class NewsViewModel(private val getNewsUseCase: GetNewsUseCase) : ViewModel() {
     private var _screenState = mutableStateOf(NewsScreenState())
@@ -21,7 +23,9 @@ class NewsViewModel(private val getNewsUseCase: GetNewsUseCase) : ViewModel() {
         return _screenState.value.scrollPositions[categoryIndex] ?: 0
     }
 
-    suspend fun getNewsByCategory(category : String){
-        screenState.value.news = getNewsUseCase.execute(category = category)
+    fun getNewsByCategory(category: String) {
+        viewModelScope.launch {
+            screenState.value.news = getNewsUseCase.execute(category = category)
+        }
     }
 }

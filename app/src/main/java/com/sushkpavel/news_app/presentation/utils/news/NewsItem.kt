@@ -49,10 +49,11 @@ fun NewsItem(
                 modifier = Modifier
                     .align(Alignment.BottomStart)
                     .background(Color.Black.copy(alpha = 0.6f))
+                    .fillMaxWidth()
                     .padding(8.dp)
             ) {
                 Text(
-                    text = news.title.take(30) + if (news.title.length > 30) "..." else "",
+                    text = news.title,
                     style = MaterialTheme.typography.titleMedium.copy(color = Color.White),
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis
