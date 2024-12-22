@@ -48,6 +48,6 @@ class NewsPagingSource(
     }
 
     companion object {
-        const val FIRST_PAGE_INDEX = 0
+        const val FIRST_PAGE_INDEX = 1
     }
 }

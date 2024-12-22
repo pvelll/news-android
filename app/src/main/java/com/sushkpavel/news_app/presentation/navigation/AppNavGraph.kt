@@ -8,11 +8,17 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.toRoute
+import com.sushkpavel.domain.model.News
+import com.sushkpavel.domain.model.Source
 import com.sushkpavel.news_app.presentation.navigation.routes.Routes
 import com.sushkpavel.news_app.presentation.screens.bookmarks.BookmarksScreen
+import com.sushkpavel.news_app.presentation.screens.details.NewsDetailsScreen
 import com.sushkpavel.news_app.presentation.screens.news.NewsScreen
 import com.sushkpavel.news_app.presentation.screens.news.NewsViewModel
+import kotlinx.serialization.json.Json
 import org.koin.java.KoinJavaComponent.inject
+import kotlin.reflect.typeOf
 
 @Composable
 fun AppNavGraph(navController: NavHostController, context: Context, paddingValues: PaddingValues) {
@@ -30,6 +36,10 @@ fun AppNavGraph(navController: NavHostController, context: Context, paddingValue
         }
         composable<Routes.ScreenBookmarks> {
             BookmarksScreen(navController = navController, context = context)
+        }
+        composable<Routes.ScreenNewsDetails>{
+            val args = it.toRoute<Routes.ScreenNewsDetails>()
+            NewsDetailsScreen(news = Json.decodeFromString(News.serializer(), args.news),navController = navController)
         }
     }
 }// implement type-safe navigation, much better than common jetpack navigation

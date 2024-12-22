@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.ksp)
+    id("kotlin-parcelize")
 }
 
 android {
@@ -16,13 +17,16 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
-        val apiKey: String = System.getenv("API_KEY") ?: gradleLocalProperties(rootDir, providers).getProperty("API_KEY") as String
+        val apiKey: String = System.getenv("API_KEY") ?: gradleLocalProperties(
+            rootDir,
+            providers
+        ).getProperty("API_KEY") as String
         buildConfigField("String", "API_KEY", "\"$apiKey\"")
         ksp {
             arg("room.schemaLocation", "$projectDir/schemas")
         }
     }
-    buildFeatures{
+    buildFeatures {
         buildConfig = true
     }
 
@@ -60,7 +64,7 @@ dependencies {
     ksp(libs.room.compiler)
     implementation(libs.room.ktx)
     testImplementation(libs.room.testing)
-    
+
     implementation(libs.androidx.paging.common.android)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
