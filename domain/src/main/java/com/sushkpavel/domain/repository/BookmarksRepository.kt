@@ -4,8 +4,8 @@ import com.sushkpavel.domain.model.News
 import kotlinx.coroutines.flow.Flow
 
 interface BookmarksRepository {
-    suspend fun addBookmark(news : News) : Flow<Boolean>
-    suspend fun deleteBookmark(news: News) : Flow<Boolean>
+    suspend fun addBookmark(news : News)
+    suspend fun deleteBookmark(news: News)
     suspend fun getBookmarks(): Flow<List<News>>
-    suspend fun isSaved(news: News): Flow<Boolean>
+    fun isSaved(news: News): Flow<Boolean>
 }

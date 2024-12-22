@@ -10,6 +10,6 @@ val appModule  = module {
         NewsViewModel(get())
     }
     viewModel {
-        NewsDetailsViewModel()
+        NewsDetailsViewModel(get(),get(),get())
     }
 }

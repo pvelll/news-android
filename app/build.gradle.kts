@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -72,6 +73,12 @@ dependencies {
 
     //room
     implementation(libs.room.ktx)
+    implementation(libs.room.runtime)
+    implementation(libs.androidx.media3.common.ktx)
+    ksp(libs.room.compiler)
+    implementation(libs.room.ktx)
+    testImplementation(libs.room.testing)
+
 
     implementation(libs.material)
     implementation(libs.androidx.appcompat)

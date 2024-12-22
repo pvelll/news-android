@@ -1,5 +1,6 @@
 package com.sushkpavel.data.local.repository
 
+import android.util.Log
 import com.sushkpavel.data.local.dao.NewsDao
 import com.sushkpavel.data.local.entity.toEntity
 import com.sushkpavel.data.local.entity.toNews
@@ -10,22 +11,13 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
 
 class BookmarksRepositoryImpl(private val newsDao: NewsDao) : BookmarksRepository {
-    override suspend fun addBookmark(news: News): Flow<Boolean> = flow {
-        try {
-            newsDao.insert(news.toEntity())
-            emit(true)
-        } catch (e: Exception) {
-            emit(false)
-        }
+    override suspend fun addBookmark(news: News) {
+        newsDao.insert(news.toEntity())
+
     }
 
-    override suspend fun deleteBookmark(news: News): Flow<Boolean> = flow {
-        try {
+    override suspend fun deleteBookmark(news: News){
             newsDao.delete(news.toEntity())
-            emit(true)
-        } catch (e: Exception) {
-            emit(false)
-        }
     }
 
 
@@ -37,7 +29,7 @@ class BookmarksRepositoryImpl(private val newsDao: NewsDao) : BookmarksRepositor
         }
     }
 
-    override suspend fun isSaved(news: News): Flow<Boolean> {
+    override fun isSaved(news: News): Flow<Boolean> {
         return newsDao.isSaved(news.url)
     }
 }
