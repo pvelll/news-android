@@ -7,6 +7,8 @@ import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import com.sushkpavel.news_app.R
 
 @Composable
 fun SaveBookmarksFloatingButton(onClick : () -> Unit, isSaved: Boolean, modifier: Modifier = Modifier) {
@@ -14,6 +16,6 @@ fun SaveBookmarksFloatingButton(onClick : () -> Unit, isSaved: Boolean, modifier
         modifier = modifier,
         onClick = onClick
     ) {
-        Icon(if(isSaved)Icons.Default.Favorite else Icons.Default.FavoriteBorder, "Save indicator")
+        Icon(if(isSaved)Icons.Default.Favorite else Icons.Default.FavoriteBorder, stringResource(R.string.save_indicator))
     }
 }

@@ -12,4 +12,8 @@
 
     <string name="app_name">Modsen News</string>
     <string name="bookmarks">Bookmarks</string>
+    <string name="error">Error</string>
+    <string name="save_indicator">Save Indicator</string>
+    <string name="visit">Visit</string>
+    <string name="please_try_again">Please try again</string>
 </resources>

@@ -1,6 +1,5 @@
 package com.sushkpavel.news_app.presentation.navigation.routes
 
-import com.sushkpavel.domain.model.News
 import kotlinx.serialization.Serializable
 
 sealed class Routes {

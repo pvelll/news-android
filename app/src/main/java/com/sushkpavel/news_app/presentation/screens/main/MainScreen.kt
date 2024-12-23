@@ -29,7 +29,7 @@ fun MainScreen() {
         bottomBar = {
             BottomAppBar {
                 BottomNavigation.entries
-                    .forEachIndexed { index, navigationItem ->
+                    .forEachIndexed { _, navigationItem ->
                         val isSelected by remember(currentRoute) {
                             derivedStateOf { currentRouteTrimmed == navigationItem.route::class.qualifiedName }
                         }
@@ -60,7 +60,7 @@ fun MainScreen() {
 
 @Preview
 @Composable
-fun mainScreenPreview(){
+fun MainScreenPreview(){
     MainScreen()
 }
 

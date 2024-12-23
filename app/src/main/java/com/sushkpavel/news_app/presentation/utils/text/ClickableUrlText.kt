@@ -10,14 +10,16 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalUriHandler
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
+import com.sushkpavel.news_app.R
 
 @Composable
 fun ClickableUrlText(url: String, modifier: Modifier = Modifier, textStyle: TextStyle) {
     val annotatedString = buildAnnotatedString {
         pushStringAnnotation(tag = "URL", annotation = url)
-        withStyle(style = SpanStyle(color = Color.Blue, fontSize = textStyle.fontSize ?: 14.sp)) {
-            append("\n Visit: $url")
+        withStyle(style = SpanStyle(color = Color.Blue, fontSize = textStyle.fontSize )) {
+            append("\n ${stringResource(R.string.visit)}: $url")
         }
         pop()
     }
