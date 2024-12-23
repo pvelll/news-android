@@ -61,12 +61,29 @@ fun NewsItem(
                     .fillMaxWidth()
                     .padding(8.dp)
             ) {
-                Text(
-                    text = news.title,
-                    style = MaterialTheme.typography.titleMedium.copy(color = Color.White),
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis
-                )
+                Column {
+                    Text(
+                        text = news.title,
+                        style = MaterialTheme.typography.bodyMedium.copy(color = Color.White),
+                        maxLines = 2,
+                        overflow = TextOverflow.Ellipsis
+                    )
+                    news.description?.let {
+                        Text(
+                            text = it,
+                            style = MaterialTheme.typography.bodyMedium.copy(color = Color.White),
+                            maxLines = 3,
+                            overflow = TextOverflow.Ellipsis
+                        )
+                    }
+                    Text(
+                        text = news.source.name,
+                        style = MaterialTheme.typography.titleMedium.copy(color = Color.White),
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis
+                    )
+                }
+
             }
         }
     }

@@ -17,13 +17,14 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.sushkpavel.domain.model.News
+import com.sushkpavel.news_app.R
 import com.sushkpavel.news_app.presentation.navigation.routes.Routes
 import com.sushkpavel.news_app.presentation.utils.news.NewsItem
-import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import org.koin.androidx.compose.koinViewModel
 
@@ -31,7 +32,6 @@ import org.koin.androidx.compose.koinViewModel
 fun BookmarksScreen(
     modifier: Modifier = Modifier,
     navController: NavHostController,
-    context: Context,
     viewModel: BookmarksViewModel = koinViewModel()
 ) {
     val bookmarks by viewModel.bookmarks.collectAsState()
@@ -40,12 +40,11 @@ fun BookmarksScreen(
         topBar = {
             Box(
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(16.dp),
+                    .fillMaxWidth(),
                 contentAlignment = Alignment.Center
             ) {
                 Text(
-                    text = "Bookmarks",
+                    text = stringResource(R.string.bookmarks),
                     textAlign = TextAlign.Center,
                     style = MaterialTheme.typography.titleLarge
                 )

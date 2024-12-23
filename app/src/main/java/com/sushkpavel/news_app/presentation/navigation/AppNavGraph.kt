@@ -35,7 +35,7 @@ fun AppNavGraph(navController: NavHostController, context: Context, paddingValue
             NewsScreen(navController = navController, context = context, viewModel = newsViewModel)
         }
         composable<Routes.ScreenBookmarks> {
-            BookmarksScreen(navController = navController, context = context)
+            BookmarksScreen(navController = navController)
         }
         composable<Routes.ScreenNewsDetails>{
             val args = it.toRoute<Routes.ScreenNewsDetails>()

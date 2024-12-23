@@ -11,4 +11,5 @@
     </string-array>
 
     <string name="app_name">Modsen News</string>
+    <string name="bookmarks">Bookmarks</string>
 </resources>
