@@ -1,3 +1,19 @@
 <resources>
-    <string name="app_name">news-app</string>
+    <string-array name="categories">
+<!--        i know, that's not the best way to store categories, but in api there is no more than 7 categories, i think its the best way -->
+        <item>general</item>
+        <item>entertainment</item>
+        <item>business</item>
+        <item>health</item>
+        <item>science</item>
+        <item>sports</item>
+        <item>technology</item>
+    </string-array>
+
+    <string name="app_name">Modsen News</string>
+    <string name="bookmarks">Bookmarks</string>
+    <string name="error">Error</string>
+    <string name="save_indicator">Save Indicator</string>
+    <string name="visit">Visit</string>
+    <string name="please_try_again">Please try again</string>
 </resources>

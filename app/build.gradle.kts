@@ -2,15 +2,17 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.ksp)
 }
 
 android {
     namespace = "com.sushkpavel.news_app"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.sushkpavel.news_app"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -40,7 +42,46 @@ android {
 }
 
 dependencies {
+    implementation(project(":domain"))
+    implementation(project(":data"))
+    //serialiation
+    implementation(libs.kotlinx.serialization.json)
 
+    //coroutines
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
+
+    //navigation
+    implementation(libs.androidx.navigation)
+
+    //ktor
+    implementation(libs.ktor.client.core)
+
+    //paging
+    implementation(libs.androidx.paging.compose)
+    implementation(libs.androidx.paging.common)
+    implementation(libs.androidx.paging)
+    implementation(libs.androidx.paging.common.android)
+
+    //coil
+    implementation(libs.coil.compose)
+    implementation(libs.coil.ktor)
+
+    //koin
+    implementation(libs.koin.android)
+    implementation(libs.koin.androidx.compose)
+
+    //room
+    implementation(libs.room.ktx)
+    implementation(libs.room.runtime)
+    implementation(libs.androidx.media3.common.ktx)
+    ksp(libs.room.compiler)
+    implementation(libs.room.ktx)
+    testImplementation(libs.room.testing)
+
+
+    implementation(libs.material)
+    implementation(libs.androidx.appcompat)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
