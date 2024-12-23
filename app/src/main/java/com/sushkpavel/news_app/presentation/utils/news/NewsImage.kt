@@ -44,20 +44,6 @@ fun NewsImage(
                     strokeWidth = 2.dp
                 )
             }
-        },
-        error = { error ->
-            Box(
-                modifier = Modifier.fillMaxSize(),
-                contentAlignment = Alignment.Center
-            ) {
-                Icon(
-                    modifier = Modifier.size(48.dp),
-                    imageVector = Icons.Outlined.Clear,
-                    contentDescription = "Icon",
-                    tint = MaterialTheme.colorScheme.onBackground.copy(alpha = .5f)
-                )
-                Log.e("NewsImage", "Error loading image: ${error.result.throwable}")
-            }
         }
     )
 }

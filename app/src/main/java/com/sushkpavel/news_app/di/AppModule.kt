@@ -1,5 +1,6 @@
 package com.sushkpavel.news_app.di
 
+import com.sushkpavel.news_app.presentation.screens.bookmarks.BookmarksViewModel
 import com.sushkpavel.news_app.presentation.screens.details.NewsDetailsViewModel
 import com.sushkpavel.news_app.presentation.screens.news.NewsViewModel
 import org.koin.core.module.dsl.viewModel
@@ -11,5 +12,8 @@ val appModule  = module {
     }
     viewModel {
         NewsDetailsViewModel(get(),get(),get())
+    }
+    viewModel {
+        BookmarksViewModel(get())
     }
 }
