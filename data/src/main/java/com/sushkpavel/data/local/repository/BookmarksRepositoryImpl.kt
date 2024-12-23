@@ -21,7 +21,7 @@ class BookmarksRepositoryImpl(private val newsDao: NewsDao) : BookmarksRepositor
     }
 
 
-    override suspend fun getBookmarks(): Flow<List<News>> {
+    override fun getBookmarks(): Flow<List<News>> {
         return newsDao.getAll().map{ entities ->
             entities.map {
                 it.toNews()

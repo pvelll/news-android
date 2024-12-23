@@ -5,5 +5,5 @@ import com.sushkpavel.domain.repository.BookmarksRepository
 class GetBookmarksUseCase(
     private val repository: BookmarksRepository
 ) {
-    suspend fun execute() = repository.getBookmarks()
+    fun execute() = repository.getBookmarks()
 }
