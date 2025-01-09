@@ -10,7 +10,6 @@ import kotlinx.coroutines.launch
 class NewsViewModel(private val getNewsUseCase: GetNewsUseCase) : ViewModel() {
     private var _screenState = mutableStateOf(NewsScreenState())
     val screenState: State<NewsScreenState> get() = _screenState
-
     fun updateCurrentPage(page: Int) {
         _screenState.value = _screenState.value.copy(currentPage = page)
     }
@@ -25,7 +24,8 @@ class NewsViewModel(private val getNewsUseCase: GetNewsUseCase) : ViewModel() {
 
     fun getNewsByCategory(category: String) {
         viewModelScope.launch {
-            screenState.value.news = getNewsUseCase.execute(category = category)
+            val newsFlow = getNewsUseCase.execute(category = category)
+            _screenState.value = _screenState.value.copy(news = _screenState.value.news.toMutableMap().apply { this[category] = newsFlow })
         }
     }
 }

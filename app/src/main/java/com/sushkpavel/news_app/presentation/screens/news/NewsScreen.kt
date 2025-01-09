@@ -27,33 +27,37 @@ fun NewsScreen(
     val categories = stringArrayResource(R.array.categories)
     val pagerState =
         rememberPagerState(initialPage = viewModel.screenState.value.currentPage) { categories.size }
-
     SideEffect {
         viewModel.getNewsByCategory(categories[pagerState.currentPage])
         viewModel.updateCurrentPage(pagerState.currentPage)
     }
-
     LaunchedEffect(pagerState.currentPage) {
         viewModel.getNewsByCategory(categories[pagerState.currentPage])
         viewModel.updateCurrentPage(pagerState.currentPage)
     }
-
-    Column(modifier = modifier.fillMaxSize()) {
-        TabIndicator(tabTitles = categories, pagerState = pagerState)
-        HorizontalPager(
-            state = pagerState,
-            modifier = Modifier.weight(1f)
-        ) { page ->
+    Column(
+        modifier =
+        modifier.fillMaxSize()
+    ) {
+        TabIndicator(
+            tabTitles = categories,
+            pagerState = pagerState
+        )
+        HorizontalPager(state = pagerState, modifier = Modifier.weight(1f)) { page ->
             NewsPage(
                 onClickNews = {
                     navController.navigate(
                         Routes.ScreenNewsDetails(
-                            Json.encodeToString(News.serializer(),it)
+                            Json.encodeToString(
+                                News.serializer(),
+                                it
+                            )
                         )
                     )
                 },
                 pageIndex = page,
-                viewModel = viewModel
+                viewModel = viewModel,
+                category = categories[page]
             )
         }
     }

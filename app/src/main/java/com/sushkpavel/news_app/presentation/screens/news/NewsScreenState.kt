@@ -7,5 +7,5 @@ import kotlinx.coroutines.flow.Flow
 data class NewsScreenState(
     var currentPage: Int = 0,
     val scrollPositions: MutableMap<Int, Int> = mutableMapOf(),
-    var news: Flow<PagingData<News>>? = null,
+    var news: Map<String, Flow<PagingData<News>>> = mapOf()
 )

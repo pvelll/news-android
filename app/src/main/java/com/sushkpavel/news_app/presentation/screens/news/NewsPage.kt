@@ -13,14 +13,22 @@ import com.sushkpavel.news_app.presentation.utils.news.NewsList
 fun NewsPage(
     onClickNews: (News) -> Unit,
     pageIndex: Int,
-    viewModel: NewsViewModel
+    viewModel: NewsViewModel,
+    category: String
 ) {
-    val scrollState = rememberLazyListState(
-        initialFirstVisibleItemIndex = viewModel.getScrollPosition(pageIndex)
-    )
-
+    val scrollState =
+        rememberLazyListState(initialFirstVisibleItemIndex = viewModel.getScrollPosition(pageIndex))
     LaunchedEffect(remember { derivedStateOf { scrollState.firstVisibleItemIndex } }) {
-        viewModel.updateScrollPosition(pageIndex, scrollState.firstVisibleItemIndex)
+        viewModel.updateScrollPosition(
+            pageIndex,
+            scrollState.firstVisibleItemIndex
+        )
     }
-    viewModel.screenState.value.news?.let { NewsList(onClickNews, it.collectAsLazyPagingItems()) }
+    val newsFlow = viewModel.screenState.value.news[category]
+    newsFlow?.let {
+        NewsList(
+            onClickNews,
+            it.collectAsLazyPagingItems()
+        )
+    }
 }
